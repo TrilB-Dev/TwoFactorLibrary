@@ -2,9 +2,15 @@
 
 The QR code generator is provided by `Trilbdev\TwoFactorLibrary\Modules\QRCode\QrCodeGenerator`.
 
+## Overview
+
+This module turns a provisioning URI such as a TOTP `otpauth://` URL into a PNG QR image that can be scanned by authenticator apps.
+
 ## Basic usage
 
 ```php
+<?php
+
 use Trilbdev\TwoFactorLibrary\TwoFactorAuthentication;
 
 $auth = new TwoFactorAuthentication('Example', 'user@example.com');
@@ -21,6 +27,8 @@ file_put_contents('totp-qr.png', $png);
 ## Custom styling
 
 ```php
+<?php
+
 $qr = new \Trilbdev\TwoFactorLibrary\Modules\QRCode\QrCodeGenerator([
     'size' => 320,
     'foregroundColor' => [20, 20, 20],
@@ -36,9 +44,9 @@ file_put_contents('brand-qr.png', $png);
 
 ## Notes
 
-- The method returns a PNG binary string.
-- The QR code is generated with the GD extension.
-- `logoPath` is optional; if the file is readable it will be centered over the QR code.
+- The return value is a PNG binary string.
+- The QR rendering depends on the GD extension.
+- `logoPath` is optional; if the file is readable, it is centered over the QR code.
 
 ## Available methods
 

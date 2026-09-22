@@ -2,9 +2,15 @@
 
 The recovery code provider is `Trilbdev\TwoFactorLibrary\Modules\Recovery\RecoveryCodeProvider`.
 
+## Overview
+
+This module generates and validates backup codes that can be used as a secondary form of recovery when primary authentication factors are unavailable.
+
 ## Generate a batch of codes
 
 ```php
+<?php
+
 use Trilbdev\TwoFactorLibrary\TwoFactorAuthentication;
 
 $auth = new TwoFactorAuthentication('Example', 'user@example.com');
@@ -16,13 +22,17 @@ print_r($codes);
 ## Generate one code
 
 ```php
+<?php
+
 $code = $auth->recoveryCodes()->generateCode(12, 'letters');
 ```
 
 ## Validate a code
 
 ```php
-$matched = $auth->recoveryCodes()->validate('ABC123XYZ789', $codes);
+<?php
+
+$matches = $auth->recoveryCodes()->validate('ABC123XYZ789', $codes);
 ```
 
 ## Supported formats
@@ -35,6 +45,8 @@ $matched = $auth->recoveryCodes()->validate('ABC123XYZ789', $codes);
 ## Example
 
 ```php
+<?php
+
 $numericCodes = $auth->recoveryCodes()->createBatch(3, 10, 'numeric');
 $alphaCodes = $auth->recoveryCodes()->createBatch(2, 12, 'letters');
 
