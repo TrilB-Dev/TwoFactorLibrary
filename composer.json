@@ -18,8 +18,8 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/TrilB-Dev/two-factor-library/issues",
-        "source": "https://github.com/TrilB-Dev/two-factor-library"
+        "issues": "https://github.com/TrilB-Dev/TwoFactorLibrary/issues",
+        "source": "https://github.com/TrilB-Dev/TwoFactorLibrary"
     },
     "require": {
         "php": ">=8.1"
